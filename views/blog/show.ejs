@@ -1,0 +1,52 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<div class="card text-white bg-danger  mb-6" style="width: 48rem; margin: 10px auto; ">
+    <h1 class="card-header"><%= blog.title %></h1>
+    <div class="card-body">
+        <img src="<%= blog.img %>" class="card-img-bottom" alt="...">
+
+      <h5 class="card-title">Author: <%= blog.author %></h5>
+      <p class="card-text"><%= blog.article %></p>
+      <a type="button" href="/blogs/<%=blog._id%>/edit" class="btn btn-warning">Edit</a>
+      <form action="/blogs/<%=blog._id%>?_method=DELETE" method="POST">
+        <button class="mt-3 btn btn-dark">Delete</button>
+      </form>
+
+
+      <div class="col-lg-6" >
+        <h1>Comment</h1>    
+        <form class="needs-validation" action='/blogs/<%=blog._id%>/comment' method="POST" novalidate>
+          
+    
+              <div class="mb-3">
+                <label for="desc" class="form-label">Comment</label>
+                <textarea class="form-control"  id="desc" cols="30" rows="5" name="comment" required></textarea>
+              </div>
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+         
+    
+    
+    <!-- ejss wala daloo -->
+     <div class="mb-3">
+          <h1>SHOW COMMENTS</h1>
+          <%for(let reviews of blog.comment){%>
+     
+            <!-- <p><%=reviews._id%></p> -->
+            <p><%= reviews.comment %></p>
+        <%}%>
+    </div>
+    
+    
+    
+        </div>
+
+    </div>
+  </div>
+
+
+
+
+<%- include('../partials/footer') %>

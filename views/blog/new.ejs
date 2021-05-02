@@ -1,0 +1,58 @@
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %>
+
+
+<div class="container">
+    <form class="needs-validation" action="/blogs" method="POST" novalidate>
+        <div class="mb-3">
+          <label for="title" class="form-label">Blog Title</label>
+          <input type="text" class="form-control" id="title" placeholder="Blog Name" name="title" required>
+          <div id="emailHelp" class="form-text">Adding New Blog to Blog</div>
+        </div>
+        <div class="mb-3">
+          <label for="img" class="form-label">IMG URL</label>
+          <input type="text" class="form-control"  placeholder="Img URL" id="img"name="img" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="author" class="form-label">Author Name </label>
+            <input type="text" class="form-control"  placeholder="Blog Author" id="price" name="author" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="article" class="form-label">Article</label>
+            <textarea class="form-control"  id="desc" cols="30" rows="5" name="article" required></textarea>
+          </div>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
+<%- include("../partials/footer") %>
+
+
+
+
+

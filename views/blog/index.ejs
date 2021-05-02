@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<% for(let blogData of blog ){%>
+<div class="card text-white bg-danger  mb-6" style="width: 48rem; margin: 10px auto;">
+    <h1 class="card-header"><%= blogData.title %></h1>
+    <div class="card-body">
+        <img src="<%= blogData.img %>" class="card-img-bottom" alt="...">
+
+      <h5 class="card-title">Author: <%= blogData.author %></h5>
+      <p class="card-text"><%= blogData.article.substring(0,75) %></p>
+      <a type="button" href="/blogs/<%=blogData._id%>" class="btn btn-info">Read Full Blog</a>
+
+    </div>
+  </div>
+
+
+<%}%>
+
+
+<%- include('../partials/footer') %>
