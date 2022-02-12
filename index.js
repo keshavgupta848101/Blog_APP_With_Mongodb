@@ -26,9 +26,10 @@ console.log("Db connected");
 
 
 
-app.get('/', (req,res)=>{
-    res.send("Hello world");
-})
+app.get("/", (req, res) => {
+  res.redirect("/blogs");
+});
+
 
 app.use(blogRouter);
 
